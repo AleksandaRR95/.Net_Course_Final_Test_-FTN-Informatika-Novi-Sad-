@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="script.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="search.css">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body onload="loadPaketi()">
+        <div id="contariner" class="container text-center">
+            <p ><h2 id="maliInfo">Korisnik nije prijavljen</h2></p>
+           <button  class="btn-primary btn-sm" type="button" id="btnLogin" onclick="showLogin()">Prijava</button>
+            <button  class="btn-success btn-sm" type="button" id="btnRegister" onclick="showRegistration()">Registracija</button>
+            <div id="registerFormDiv" style="display:none" class="container text-center">
+                <h3>Register</h3>
+                <form method="post" action="post/" id="registerForm" onsubmit="return registerUser()">
+                    <p><label >Email: <input type="email" id="emailRegister"></label></p>
+                    <p><label>Username: <input type="text" id="usernameRegister"></label></p>
+                    <p><label>Password: <input type="password" id="passwordRegister"></label></p>
+                    <p><label>Confirm password: <input type="password" id="confirmPasswordRegister"></label></p>
+                    <br />
+                    <p><button class="btn btn-primary">Registruj se</button></p>
+                </form>
+                <p><button class="btn btn-danger" onclick="loadPaketi()">Odustajanje</button></p>
+            </div>
+            <div id="loginFormDiv" style="display:none" class="container text-center">
+                <h3>Prijavi se</h3>
+                <form method="post" action="post/" id="loginForm" onsubmit="return loginUser()">
+                    <p><label>Username: <input type="text" id="usernameLogin"></label></p>
+                    <p><label>Password: <input type="password" id="passwordLogin"></label></p>
+                    <br />
+                    <p><button class="btn btn-primary">Prijavi se</button></p>
+                </form>
+                <p><button class="btn btn-danger" onclick="loadPaketi()">Odustajanje</button></p>
+            </div>
+            <div id="logout" style="display:none" class="container text-center">
+                <br /><br />
+                <h3>Odjava</h3>
+                <br />
+                <button class="btn btn-danger" onclick="logout()">Odjava</button>
+                <p id="info"></p>
+            </div>
+            <div id="searchDiv" style="display:none" class="container text-center">
+                <form  action="/post" method="post" id="serchForm" onsubmit="return submitSearchForm()">
+                    <p><h2>Pretraga paketa po tezini</h2></p>
+                    <p><label>Najmanje(kg): <input id="najmanje"></label></p>
+                    <p><label>Najvise(kg): <input id="najvise" ></label></p>
+                    <p><button class="btn btn-primary ">Trazi</button></p>
+                </form>
+            </div>
+            <div id="data" style="display:none" class="container text-center">
+            </div>
+            <div id="formDiv" style="display:none" class="container text-center">
+                <form method="post" action="post/" id="paketiForm" onsubmit="return submitPaketForm()">
+                    <p><h3>Dodavanje novog paketa</h3></p>
+                    <p><label>Posiljalac: <input id="paketPosiljalac" type="text" class=""></label></p>
+                    <p><label>Primalac: <input id="paketPrimalac" type="text"></label></p>
+                    <p><label>Tezina(kg): <input id="paketTezina" type="number"></label></p>
+                    <p><label>Cena postarine: <input id="paketCena" ></label></p>
+                    <p><label>Kuriri: <select class="form-select" id="paketKuriri" > </select></label></p>
+
+                    <br />
+                    <p><button class="btn btn-success">Dodavanje</button></p>
+                </form>
+                <p><button class="btn btn-warning" onclick="refresh()">Odustajanje</button></p>
+            </div>
+        </div>
+        
+    </body>
+</html>
